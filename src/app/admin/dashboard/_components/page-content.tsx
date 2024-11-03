@@ -2,47 +2,50 @@
 
 import React, { useState } from "react";
 
-import axios from "axios";
-import dynamic from "next/dynamic";
+// import axios from "axios";
+// import dynamic from "next/dynamic";
 import { RxAvatar } from "react-icons/rx";
 
 import Image from "next/image";
 import Sidebar from "@/_common/sidebar";
 import ModalComponent from "@/_components/modal";
 
-const DataTable = dynamic(() => import("react-data-table-component"), {
-  ssr: false,
-});
+// const DataTable = dynamic(() => import("react-data-table-component"), {
+//   ssr: false,
+// });
 
 export default function PageContent() {
   const [isVisible, setIsVisible] = useState(false);
-  const [avatar, setAvatar] = useState(null);
+  const [avatar, setAvatar] = useState<File | null>(null);
 
-  const handleAvatar = async (e: any) => {
-    const file = e.target.files[0];
-    setAvatar(file);
-  }
+  const handleAvatar = async (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0];
+    if (file) {
+      setAvatar(file);
+    }
+  };
+  
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    const response = await axios.post('', avatar);
-    if (response.status) {
+    // const response = await axios.post('', avatar);
+    // if (response.status) {
 
-    } else {
+    // } else {
 
-    }
+    // }
   }
 
-  const columns = [
-    { name: "ID", selector: (row: any) => row.id, width: "20%" },
-    { name: "Images", selector: (row: any) => row.images, width: "60%" },
-    { name: "Action", width: "20%" },
-  ];
+  // const columns = [
+  //   { name: "ID", selector: (row: any) => row.id, width: "20%" },
+  //   { name: "Images", selector: (row: any) => row.images, width: "60%" },
+  //   { name: "Action", width: "20%" },
+  // ];
 
-  const data = [
-    { id: 1, images: "Beetlejuice" },
-    { id: 2, images: "Ghostbusters" },
-  ];
+  // const data = [
+  //   { id: 1, images: "Beetlejuice" },
+  //   { id: 2, images: "Ghostbusters" },
+  // ];
 
   return (
     <Sidebar>
@@ -55,12 +58,12 @@ export default function PageContent() {
             Add Hero image
           </button>
         </div>
-        <DataTable
+        {/* <DataTable
           columns={columns}
           data={data}
           pagination
           paginationPerPage={2}
-        />
+        /> */}
       </div>
       <ModalComponent
         isVisible={isVisible}
