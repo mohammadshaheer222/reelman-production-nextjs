@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
@@ -8,6 +8,7 @@ import "react-lazy-load-image-component/src/effects/blur.css";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 
 const SliderElement = ({ sliderImage }: { sliderImage: string }) => {
+  const [imageLoader, setImageLoader] = useState(true);
   const infinite = Array.isArray(sliderImage) && sliderImage.length > 1;
 
   const settings = {
@@ -32,15 +33,32 @@ const SliderElement = ({ sliderImage }: { sliderImage: string }) => {
           height: "100vh",
         }}
       >
+        {imageLoader && (
+          <div style={{
+            width: "100vw",
+            height: "95vh",
+            backgroundColor: "#e0e0e0",
+            animation: "pulse 1.5s infinite",
+            position: "absolute",
+            top: 0,
+            left: 0,
+            zIndex: 1,
+          }}/>
+        ) }
         <LazyLoadImage
           src={sliderImage ? sliderImage : "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSmCS1UA3pZIonRuREw2OLe4fXDUlTwPazCCGpk8W3zHM5OmH7FYx0C2ohARdFSzVN5TUg&usqp=CAU"}
           alt="Slider background"
           effect="blur"
+          onLoad={() => setImageLoader(false)}
           style={{
             width: "100vw",
             height: "95vh",
             objectFit: "cover",
             objectPosition: "center",
+            opacity: imageLoader ? 0 : 1,
+            transition: "opacity 0.5s ease-in-out",
+            position: "relative",
+            zIndex: 2,
           }}
         />
         {/* <div
