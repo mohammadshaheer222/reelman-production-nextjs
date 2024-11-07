@@ -3,18 +3,26 @@
 import React, { useState } from "react";
 
 // import axios from "axios";
-// import dynamic from "next/dynamic";
+import dynamic from "next/dynamic";
 import { RxAvatar } from "react-icons/rx";
 
 import Image from "next/image";
 import Sidebar from "@/_common/sidebar";
 import ModalComponent from "@/_components/modal";
+import { TableColumn } from "react-data-table-component";
 
-// const DataTable = dynamic(() => import("react-data-table-component"), {
-//   ssr: false,
-// });
+const DataTable = dynamic(() => import("react-data-table-component"), {
+  ssr: false,
+});
+
+
+type RowData = {
+  id: number;
+  name: string;
+};
 
 export default function PageContent() {
+  
   const [isVisible, setIsVisible] = useState(false);
   const [avatar, setAvatar] = useState<File | null>(null);
 
@@ -25,7 +33,6 @@ export default function PageContent() {
     }
   };
   
-
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     // const response = await axios.post('', avatar);
@@ -36,16 +43,26 @@ export default function PageContent() {
     // }
   }
 
-  // const columns = [
-  //   { name: "ID", selector: (row: any) => row.id, width: "20%" },
-  //   { name: "Images", selector: (row: any) => row.images, width: "60%" },
-  //   { name: "Action", width: "20%" },
-  // ];
-
-  // const data = [
-  //   { id: 1, images: "Beetlejuice" },
-  //   { id: 2, images: "Ghostbusters" },
-  // ];
+  const columns: TableColumn<RowData>[] = [
+    {
+      name: 'ID',
+      selector: (row) => row.id,
+      sortable: true,
+    },
+    {
+      name: 'Name',
+      selector: (row) => row.name,
+      sortable: true,
+    },
+    {
+      name: 'Actions',
+    },
+  ];
+  
+  const data: RowData[] = [
+    { id: 1, name: 'Wedding'},
+    { id: 2, name: 'Photoshoot' }
+  ];
 
   return (
     <Sidebar>
@@ -58,12 +75,12 @@ export default function PageContent() {
             Add Hero image
           </button>
         </div>
-        {/* <DataTable
-          columns={columns}
+        <DataTable
+          columns={columns as TableColumn<unknown>[]}
           data={data}
-          pagination
-          paginationPerPage={2}
-        /> */}
+          // pagination
+          // paginationPerPage={2}
+        />
       </div>
       <ModalComponent
         isVisible={isVisible}
