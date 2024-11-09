@@ -1,20 +1,19 @@
 "use client"
 
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
 // import axios from "axios";
 import dynamic from "next/dynamic";
-import { RxAvatar } from "react-icons/rx";
 
-import Image from "next/image";
 import Sidebar from "@/_common/sidebar";
 import ModalComponent from "@/_components/modal";
 import { TableColumn } from "react-data-table-component";
+import { TextInputBox } from "@/_components/form_elements";
+import { useImageCompression } from "@/_components/image-compression";
 
 const DataTable = dynamic(() => import("react-data-table-component"), {
   ssr: false,
 });
-
 
 type RowData = {
   id: number;
@@ -22,17 +21,22 @@ type RowData = {
 };
 
 export default function PageContent() {
-  
   const [isVisible, setIsVisible] = useState(false);
   const [avatar, setAvatar] = useState<File | null>(null);
+  const { compressedImage, compressImage } = useImageCompression();
 
-  const handleAvatar = async (e: React.ChangeEvent<HTMLInputElement>) => {
-    const file = e.target.files?.[0];
-    if (file) {
-      setAvatar(file);
+  const handleAvatar = async (value: File | undefined) => {
+    if (value) {
+      compressImage(value);
     }
   };
-  
+
+  useEffect(() => {
+    if (compressedImage) {
+      setAvatar(compressedImage);
+    }
+  }, [compressedImage]);
+
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     // const response = await axios.post('', avatar);
@@ -58,9 +62,9 @@ export default function PageContent() {
       name: 'Actions',
     },
   ];
-  
+
   const data: RowData[] = [
-    { id: 1, name: 'Wedding'},
+    { id: 1, name: 'Wedding' },
     { id: 2, name: 'Photoshoot' }
   ];
 
@@ -78,8 +82,8 @@ export default function PageContent() {
         <DataTable
           columns={columns as TableColumn<unknown>[]}
           data={data}
-          // pagination
-          // paginationPerPage={2}
+        // pagination
+        // paginationPerPage={2}
         />
       </div>
       <ModalComponent
@@ -92,34 +96,7 @@ export default function PageContent() {
         modalBody={
           <>
             <form className="flex flex-col items-center w-full h-full gap-4" onSubmit={handleSubmit}>
-              <div className="flex flex-col justify-center w-full h-full items-center">
-                <label
-                  htmlFor="avatar"
-                  className="flex flex-col justify-center h-full items-center"
-                >
-                  <div className="py-6">
-                    <span className="bg-black-shade-900 w-full text-white px-4 py-2 cursor-pointer active:scale-95 active:shadow-lg duration-100">
-                      Browse Your Photos
-                    </span>
-                    <input
-                      className="sr-only"
-                      type="file"
-                      name="avatar"
-                      id="avatar"
-                      accept="image/*"
-                      onChange={handleAvatar}
-                      required
-                    />
-                  </div>
-                </label>
-                <span className="inline-block overflow-hidden">
-                  {avatar ? (
-                    <Image src={URL.createObjectURL(avatar)} alt="Hero image" width={150} height={200} />
-                  ) : (
-                    <RxAvatar size={100} className="text-gray-300" />
-                  )}
-                </span>
-              </div>
+              <TextInputBox type="file" id="avatar" name="avatar" onChangeValue={(file: File | undefined) => handleAvatar(file)} imageState={avatar} />
               {avatar && (
                 <input
                   type="submit"

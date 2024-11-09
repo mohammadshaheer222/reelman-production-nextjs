@@ -6,10 +6,10 @@ import Link from "next/link";
 import { MdMenu, MdClose, MdHome } from "react-icons/md";
 
 export default function Sidebar({ children }: { children: React.ReactNode }) {
-  const [isOpen, setIsOpen] = useState(true);
+  const [isOpen, setIsOpen] = useState(false);
   return (
     <div className="flex h-screen w-full font-playfair">
-      <div className={`${isOpen ? "w-64 mob-land:translate-x-0" : "w-20 mob-land:-translate-x-full mob-land:w-0 mob-land:p-0"}transition-transform duration-300 
+      <div className={`${isOpen ? "w-80 mob-land:translate-x-0" : "w-20 mob-land:-translate-x-full mob-land:w-0 mob-land:p-0"}transition-transform duration-300 
           ease-in-out bg-white h-screen p-5 space-y-6 py-[50px] flex flex-col gap-4 mob-land:fixed z-30`}>
         <h2 className={`text-2xl font-bold ${isOpen ? "block" : " hidden"} mob-land:hidden`}>Reelman Production</h2>
         <nav className="flex flex-col gap-4">
@@ -21,7 +21,7 @@ export default function Sidebar({ children }: { children: React.ReactNode }) {
       </div>
       <div className="flex flex-col w-full">
         <div className="flex items-center justify-between bg-black-shade-900 text-white p-4 shadow">
-          <button className=" p-2 text-gray-600 hover:text-gray-800 mob-land:hidden" onClick={() => setIsOpen(!isOpen)}>{isOpen ? <MdMenu /> : <MdClose />}</button>
+          <button className=" p-2 text-gray-600 hover:text-gray-800 mob-land:hidden" onClick={() => setIsOpen(!isOpen)}>{isOpen ? <MdClose /> : <MdMenu />}</button>
           <h3>Admin Panel</h3>
           <button className=" p-2 text-gray-600 hover:text-gray-800 hidden mob-land:block" onClick={() => setIsOpen(!isOpen)}>{isOpen ? <MdMenu /> : <MdClose />}</button>
         </div>

@@ -37,7 +37,7 @@ const SliderElement = ({ sliderImage }: { sliderImage: string }) => {
           <div style={{
             width: "100vw",
             height: "95vh",
-            backgroundColor: "#e0e0e0",
+            backgroundColor: "gray",
             animation: "pulse 1.5s infinite",
             position: "absolute",
             top: 0,
