@@ -5,17 +5,27 @@ import { RxAvatar } from "react-icons/rx";
 
 export default function TextInputBox({
     type = "text",
+    onChangeValueText,
     onChangeValue,
+    placeholder,
     imageState,
+    value,
     name = ``,
     id = ``,
     altText = ``,
     wrapperClass = ``,
     labelClass = ``,
     inputClass = ``,
+    error = ``,
+    errorWrapperClass = ``,
+    // errorTextClass = ``,
+    errorElementId = ``,
 }: {
     type: string;
-    onChangeValue: (value: File | undefined) => void;
+    placeholder?: string | undefined;
+    onChangeValueText?: (value: string) => void;
+    onChangeValue?: (value: File | undefined) => void;
+    value?: string | undefined;
     name?: string | undefined;
     id?: string | undefined;
     imageState?: File | null;
@@ -23,24 +33,56 @@ export default function TextInputBox({
     wrapperClass?: string | undefined;
     labelClass?: string | undefined;
     inputClass?: string | undefined;
+    error?: string | undefined;
+    errorWrapperClass?: string | undefined;
+    // errorTextClass?: string | undefined;
+    errorElementId?: string | undefined;
 }) {
+    const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+        if (type === "text" && onChangeValueText) {
+            onChangeValueText(e.target.value); // Call only if defined
+        } else if (type === "file" && onChangeValue) {
+            const file = e.target.files?.[0];
+            onChangeValue(file); // Call only if defined
+        }
+    };
     return (
-        <div className={`${wrapperClass} flex flex-col justify-center w-full h-full items-center`}>
-            <label htmlFor={id} className={`${labelClass} flex flex-col justify-center h-full items-center`}>
-                <div className="py-6">
-                    <span className="bg-black-shade-900 w-full text-white px-4 py-2 cursor-pointer active:scale-95 active:shadow-lg duration-100">
-                        Browse Your Photos
-                    </span>
-                    <input className={`${inputClass} sr-only`} type={type} name={name} id={id} accept="image/*" onChange={(e: React.ChangeEvent<HTMLInputElement>) => onChangeValue(e.target.files?.[0])} />
+        type === "text" ? (
+            <div>
+                <div className={`${wrapperClass} flex-1 mob-land:flex-none w-full mob-land:w-full}`}>
+                    <input
+                        className={`${inputClass} bg-white px-5 py-4 w-full rounded-2xl placeholder:text-gray-400 text-close-icon text-lg placeholder:font-degular-regular placeholder:tracking-contents placeholder:leading-[21.6px] leading-[21.6px] placeholder:text-lg border border-solid border-green-white-shade focus:border-form-desc tracking-contents dark:bg-black-shade ${error !== "undefined" && error !== "" ? 'border-[2px] border-solid border-red-500' : ''}`}
+                        placeholder={placeholder}
+                        type={type}
+                        value={value}
+                        onChange={handleInputChange}
+                    />
+                    {error !== '' && (
+                        <div className={`pt-1 text-base text-validation-error tracking-contents ${errorWrapperClass}`} id={errorElementId}>{error}</div>
+                    )}
                 </div>
-            </label>
-            <span className="inline-block overflow-hidden">
-                {imageState ? (
-                    <Image src={URL.createObjectURL(imageState)} alt={altText} width={150} height={200} />
-                ) : (
-                    <RxAvatar size={100} className="text-gray-300" />
-                )}
-            </span>
-        </div>
+            </div>
+        ) : (
+            <>
+                <div className={`${wrapperClass} flex flex-col justify-center w-full h-full items-center`}>
+                    <label htmlFor={id} className={`${labelClass} flex flex-col justify-center h-full items-center`}>
+                        <div className="py-6">
+                            <span className="bg-black-shade-900 w-full text-white px-4 py-2 cursor-pointer active:scale-95 active:shadow-lg duration-100 rounded-sm">
+                                Browse Your Photos
+                            </span>
+                            <input className={`${inputClass} sr-only`} type={type} name={name} id={id} accept="image/*" onChange={handleInputChange} />
+                        </div>
+                    </label>
+                    <span className="inline-block overflow-hidden">
+                        {imageState ? (
+                            <Image src={URL.createObjectURL(imageState)} alt={altText} width={150} height={200} />
+                        ) : (
+                            <RxAvatar size={100} className="text-gray-300" />
+                        )}
+                    </span>
+                </div>
+            </>
+        )
+
     )
 }

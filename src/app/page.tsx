@@ -4,6 +4,7 @@ import { Suspense } from "react";
 
 import { metadata as layoutMetaData } from "@/app/layout";
 import PageContent from "./_components/page-content";
+// import Footer from "@/_common/footer";
 
 export const metadata: Metadata = {
   title:"Reelman Productions | Wedding Photography, Modeling, and Professional Photoshoots",
