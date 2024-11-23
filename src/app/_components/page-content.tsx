@@ -27,8 +27,8 @@ export default function PageContent() {
               <div className="overflow-hidden">
                 <Image src={demo} alt="Wedding photo" quality={100} unoptimized={true} priority={true} className="object-cover object-center h-[400px] w-full hover:scale-105 transition-all duration-700" />
               </div>
-              <p className="capitalize font-bold font-playfair leading-[19px] tracking-[0.9px] text-lg py-2 text-center">Wedding</p>
-              <p className="font-playfair font-light leading-[19px] tracking-[0.9px] text-lg py-2 text-center">The big day</p>
+              <p className="capitalize font-bold font-playfair leading-[19px] tracking-[0.9px] text-lg py-2 text-center text-black">Wedding</p>
+              <p className="font-playfair font-light leading-[19px] tracking-[0.9px] text-lg py-2 text-center text-black">The big day</p>
             </Link>
           </div>
           <div className="relative">
@@ -36,8 +36,8 @@ export default function PageContent() {
               <div className="overflow-hidden">
                 <Image src={demo} alt="Wedding photo" quality={100} unoptimized={true} priority={true} className="object-cover object-center h-[400px] w-full hover:scale-105 transition-all duration-700 mob-lg:h-[380px]" />
               </div>
-              <p className="capitalize font-bold font-playfair leading-[19px] tracking-[0.9px] text-lg py-2 text-center">Films</p>
-              <p className="font-playfair font-light leading-[19px] tracking-[0.9px] text-lg py-2 text-center">Creativity Show</p>
+              <p className="capitalize font-bold font-playfair leading-[19px] tracking-[0.9px] text-lg py-2 text-center text-black">Films</p>
+              <p className="font-playfair font-light leading-[19px] tracking-[0.9px] text-lg py-2 text-center text-black">Creativity Show</p>
             </Link>
           </div>
           <div className="relative">
@@ -45,8 +45,8 @@ export default function PageContent() {
               <div className="overflow-hidden">
                 <Image src={demo} alt="Wedding photo" quality={100} unoptimized={true} priority={true} className="object-cover object-center h-[400px] w-full hover:scale-105 transition-all duration-700 mob-lg:h-[380px]" />
               </div>
-              <p className="capitalize font-bold font-playfair leading-[19px] tracking-[0.9px] text-lg py-2 text-center">Outdoors</p>
-              <p className="font-playfair font-light leading-[19px] tracking-[0.9px] text-lg py-2 text-center">The big day</p>
+              <p className="capitalize font-bold font-playfair leading-[19px] tracking-[0.9px] text-lg py-2 text-center text-black">Outdoors</p>
+              <p className="font-playfair font-light leading-[19px] tracking-[0.9px] text-lg py-2 text-center text-black">The big day</p>
             </Link>
           </div>
           <div className="relative">
@@ -54,8 +54,8 @@ export default function PageContent() {
               <div className="overflow-hidden">
                 <Image src={demo} alt="Wedding photo" quality={100} unoptimized={true} priority={true} className="object-cover object-center h-[400px] w-full hover:scale-105 transition-all duration-700 mob-lg:h-[380px]" />
               </div>
-              <p className="capitalize font-bold font-playfair leading-[19px] tracking-[0.9px] text-lg py-2 text-center">Modeling</p>
-              <p className="font-playfair font-light leading-[19px] tracking-[0.9px] text-lg py-2 text-center">The big day</p>
+              <p className="capitalize font-bold font-playfair leading-[19px] tracking-[0.9px] text-lg py-2 text-center text-black">Modeling</p>
+              <p className="font-playfair font-light leading-[19px] tracking-[0.9px] text-lg py-2 text-center text-black">The big day</p>
             </Link>
           </div>
         </div>
