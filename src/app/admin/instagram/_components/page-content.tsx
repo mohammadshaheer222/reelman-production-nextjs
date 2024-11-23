@@ -71,17 +71,15 @@ export function PageContent() {
 
         // }
     }
+    
     return (
         <div>
             <Sidebar>
                 <div>
                     <div className="flex flex-col gap-4">
                         <div className="flex items-end justify-end">
-                            <button
-                                className="px-4 py-2 bg-black-shade-900 text-white hover:bg-white hover:text-black-shade-900 rounded-sm"
-                                onClick={() => setIsVisible(true)}
-                            >
-                                Add Instagram Images
+                            <button className="px-4 py-2 bg-black-shade-900 text-white hover:bg-white hover:text-black-shade-900 rounded-sm"
+                                onClick={() => setIsVisible(true)}> Add Instagram Images
                             </button>
                         </div>
                         <DataTable
@@ -101,13 +99,11 @@ export function PageContent() {
                         modalBody={
                             <>
                                 <form className="flex flex-col items-center w-full h-full gap-4" onSubmit={handleSubmit}>
-                                    <TextInputBox type="text" placeholder="Link" value={link} onChangeValueText={(value: string) => setLink(value) } />
+                                    <TextInputBox type="text" placeholder="Link" value={link} onChangeValueText={(value: string) => setLink(value)} />
                                     <TextInputBox type="file" id="avatar" name="avatar" onChangeValue={(file: File | undefined) => handleAvatar(file)} imageState={avatar} />
                                     {avatar && (
-                                        <input
-                                            type="submit"
-                                            //   value={isLoading ? "Uploading..." : "Upload"}
-                                            className="px-8 py-2 bg-black-shade-900 text-white hover:bg-white hover:text-black-shade-900 rounded-sm"
+                                        <input type="submit" className="px-8 py-2 bg-black-shade-900 text-white hover:bg-white hover:text-black-shade-900 rounded-sm"
+                                        //   value={isLoading ? "Uploading..." : "Upload"}
                                         />
                                     )}
                                 </form>

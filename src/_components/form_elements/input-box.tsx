@@ -40,10 +40,10 @@ export default function TextInputBox({
 }) {
     const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         if (type === "text" && onChangeValueText) {
-            onChangeValueText(e.target.value); // Call only if defined
+            onChangeValueText(e.target.value);
         } else if (type === "file" && onChangeValue) {
             const file = e.target.files?.[0];
-            onChangeValue(file); // Call only if defined
+            onChangeValue(file);
         }
     };
     return (
