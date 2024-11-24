@@ -20,7 +20,7 @@ const WeddingCard = ({ weddingCategory, wrapperClass=`` }: { weddingCategory: We
                                 <Image src={data.cardImage} alt="Wedding photo" quality={100} unoptimized={true} priority={true} className="object-cover object-center h-[400px] w-full hover:scale-105 transition-all duration-700" />
                             </div>
                             <p className="capitalize font-bold font-playfair leading-[19px] tracking-[0.9px] text-lg py-2 text-center text-black">{data.cardTitle}</p>
-                            <p className="font-playfair font-light leading-[19px] tracking-[0.9px] text-lg py-2 text-center text-black">{data.cardQuote}</p>
+                            <p className="font-playfair font-light leading-[19px] tracking-[0.9px] text-lg py-1 text-center text-black">{data.cardQuote}</p>
                         </Link>
                     </div>
                 ))}

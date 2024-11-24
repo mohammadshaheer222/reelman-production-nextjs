@@ -37,7 +37,7 @@ export default function PageContent() {
         <button className="bg-transparent text-black border border-gray-700 font-playfair leading-[19px] tracking-[0.9px] px-8 py-4 hover:bg-black hover:text-white rounded-sm">Book Your Wedding</button>
       </div>
       <div className="flex flex-col justify-start items-start p-5">
-      <h1 className="text-4xl font-playfair font-bold leading-[19px] tracking-[0.9px] pb-4 uppercase text-start flex-nowrap text-black mob:text-2xl">Instagram</h1>
+        <h1 className="text-4xl font-playfair font-bold leading-[19px] tracking-[0.9px] pb-4 uppercase text-start flex-nowrap text-black mob:text-2xl">Instagram</h1>
         <div className="grid grid-cols-4 ipad:grid-cols-3 mob-lg:grid-cols-2 h-full w-full gap-4">
           {instagram && instagram.map((data, index: number) => (
             <div key={index} className="cursor-pointer group overlay top-0 left-0 w-full h-full transition-opacity duration-500 hover:opacity-50">
