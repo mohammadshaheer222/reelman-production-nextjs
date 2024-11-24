@@ -51,7 +51,7 @@ export default function TextInputBox({
             <div>
                 <div className={`${wrapperClass} flex-1 mob-land:flex-none w-full mob-land:w-full}`}>
                     <input
-                        className={`${inputClass} bg-white px-5 py-4 w-full rounded-2xl placeholder:text-gray-400 text-close-icon text-lg placeholder:font-playfair placeholder:tracking-contents placeholder:leading-[21.6px] leading-[21.6px] placeholder:text-lg border border-solid border-green-white-shade focus:border-form-desc tracking-contents dark:bg-black-shade ${error !== "undefined" && error !== "" ? 'border-[2px] border-solid border-red-500' : ''}`}
+                        className={`${inputClass} bg-white px-5 py-4 w-full rounded-2xl placeholder:text-gray-400 focus:border-black tracking-contents ${error !== "undefined" && error !== "" ? 'border-[2px] border-solid border-red-500' : ''}`}
                         placeholder={placeholder}
                         type={type}
                         value={value}

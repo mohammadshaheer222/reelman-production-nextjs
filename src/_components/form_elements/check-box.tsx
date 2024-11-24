@@ -30,7 +30,7 @@ export default function CheckBox({
                 {labelPos === 'before' && (
                     <>{label}</>
                 )}
-                <input type="checkbox" className={`!w-5 min-w-5 h-5 cursor-pointer border-solid appearance-none text-lg placeholder:font-playfair placeholder:tracking-contents placeholder:leading-[21.6px] placeholder:text-lg border focus:border-black tracking-[0.9px] ${inputClass}`}
+                <input type="checkbox" className={`!w-5 min-w-5 h-5 cursor-pointer border-solid appearance-none text-lg placeholder:font-playfair tracking-contents leading-[21.6px] border focus:border-black tracking-[0.9px] ${inputClass}`}
                     style={{
                         backgroundColor: value === 1 ? "#037D50" : '#FFF',
                         borderColor: value === 1 ? "#000" : "transparent",

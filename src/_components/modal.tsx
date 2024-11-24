@@ -55,7 +55,7 @@ export default function ModalComponent({
                                     </div>
                                     {/*footer*/}
                                     {typeof modalFooter !== "undefined" && (
-                                        <div className={`flex items-center justify-center p-4 rounded-b-2xl bg-green-white-shade dark:bg-black-shade ${footerClass}`}>{modalFooter}</div>
+                                        <div className={`flex items-center justify-center p-4 rounded-b-2xl ${footerClass}`}>{modalFooter}</div>
                                     )}
                                 </div>
                             </div>
