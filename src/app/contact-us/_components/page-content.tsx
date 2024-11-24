@@ -55,9 +55,9 @@ export default function PageContent() {
                             /> */}
                             <TextInputBox type="text" placeholder="Location of your wedding" value={formData.location} onChangeValueText={(value: string) => setFormData({ ...formData, location: value })} />
                             <div className="flex justify-start items-center gap-5 mob-lg:flex-col mob-lg:justify-start mob-lg:items-start">
-                                <CheckBox value={formData.photography} onTriggerCheck={(value: number) => setFormData({ ...formData, photography: value ? 1 : 0 })} label={<p className="font-playfair font-thin text-base leading-[19px] tracking-[0.9px]">Photography</p>} />
-                                <CheckBox value={formData.videography} onTriggerCheck={(value: number) => setFormData({ ...formData, videography: value ? 1 : 0 })} label={<p className="font-playfair font-thin text-base leading-[19px] tracking-[0.9px]">Videography</p>} />
-                                <CheckBox value={formData.both} onTriggerCheck={(value: number) => setFormData({ ...formData, both: value ? 1 : 0 })} label={<p className="font-playfair font-thin text-base leading-[19px] tracking-[0.9px]">Both</p>} />
+                                <CheckBox value={formData.photography} onTriggerCheck={(value: number) => setFormData({ ...formData, photography: value ? 1 : 0 })} label={<p className="font-playfair font-thin text-base text-black leading-[19px] tracking-[0.9px]">Photography</p>} />
+                                <CheckBox value={formData.videography} onTriggerCheck={(value: number) => setFormData({ ...formData, videography: value ? 1 : 0 })} label={<p className="font-playfair font-thin text-base text-black leading-[19px] tracking-[0.9px]">Videography</p>} />
+                                <CheckBox value={formData.both} onTriggerCheck={(value: number) => setFormData({ ...formData, both: value ? 1 : 0 })} label={<p className="font-playfair font-thin text-base leading-[19px] text-black tracking-[0.9px]">Both</p>} />
                             </div>
                         </div>
                         <button type="submit" className="border border-gray-400 text-black px-10 py-2 cursor-pointer hover:bg-black hover:text-white">

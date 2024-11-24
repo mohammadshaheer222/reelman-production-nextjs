@@ -30,10 +30,10 @@ export default function CheckBox({
                 {labelPos === 'before' && (
                     <>{label}</>
                 )}
-                <input type="checkbox" className={`!w-5 min-w-5 h-5 border-solid appearance-none ${inputClass}`}
+                <input type="checkbox" className={`!w-5 min-w-5 h-5 cursor-pointer border-solid appearance-none text-lg placeholder:font-playfair placeholder:tracking-contents placeholder:leading-[21.6px] placeholder:text-lg border focus:border-black tracking-[0.9px] ${inputClass}`}
                     style={{
                         backgroundColor: value === 1 ? "#037D50" : '#FFF',
-                        borderColor: value === 1 ? "#000" : "#000",
+                        borderColor: value === 1 ? "#000" : "transparent",
                         borderWidth: '2px',
                         borderRadius: '8px',
                         padding: "2px"
@@ -46,7 +46,7 @@ export default function CheckBox({
                 )}
             </div>
             {error !== '' && (
-                <div className={`pt-1 text-base text-validation-error tracking-contents ${errorWrapperClass}`} id={errorElementId}>{error}</div>
+                <div className={`pt-1 text-base tracking-[0.9px] ${errorWrapperClass}`} id={errorElementId}>{error}</div>
             )}
         </div>
     )
