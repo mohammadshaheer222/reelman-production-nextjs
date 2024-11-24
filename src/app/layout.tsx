@@ -3,7 +3,6 @@ import type { Metadata } from "next";
 import { Playfair } from "next/font/google"
 import "./globals.css";
 import Footer from "@/_common/footer";
-// import Footer from "@/_common/footer";
 
 const playfair = Playfair({
   subsets: ['latin'], //Latin: Includes basic characters used in English (A-Z, a-z, 0-9).

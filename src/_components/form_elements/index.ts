@@ -1,3 +1,4 @@
 import TextInputBox from "./input-box";
+import CheckBox from "./check-box";
 
-export { TextInputBox }
+export { TextInputBox, CheckBox  }

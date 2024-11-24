@@ -34,7 +34,7 @@ export default function PageContent() {
       <WeddingCard weddingCategory={weddingCategory} wrapperClass="py-5" />
       <WeddingReel weddingReel={weddingReel} wrapperClass="p-5" />
       <div className="flex justify-center items-center py-5">
-        <button className="bg-transparent text-black border border-gray-700 font-playfair leading-[19px] tracking-[0.9px] px-8 py-4 hover:bg-black hover:text-white rounded-sm">Book Your Wedding</button>
+        <Link href={"/contact-us"} className="bg-transparent text-black border border-gray-700 font-playfair leading-[19px] tracking-[0.9px] px-8 py-4 hover:bg-black hover:text-white rounded-sm">Book Your Wedding</Link>
       </div>
       <div className="flex flex-col justify-start items-start p-5">
         <h1 className="text-4xl font-playfair font-bold leading-[19px] tracking-[0.9px] pb-4 uppercase text-start flex-nowrap text-black mob:text-2xl">Instagram</h1>

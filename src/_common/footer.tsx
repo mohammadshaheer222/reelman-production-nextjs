@@ -9,7 +9,7 @@ export default function Footer() {
     return (
         <div className="w-full bg-theme-color flex flex-col gap-14 justify-center items-center py-5">
             <div className="flex flex-col justify-center items-center w-full gap-2">
-                <FaInstagram size={20} className="text-center" />
+                <FaInstagram size={20} className="text-center text-black" />
                 <Link className="font-playfair font-thin leading-[19px] tracking-[0.9px] text-black" href={"https://www.instagram.com/reelmanproduction/"}>@reelmanproductions</Link>
             </div>
             <div className="flex flex-col gap-4">

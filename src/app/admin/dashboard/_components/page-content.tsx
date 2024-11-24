@@ -1,9 +1,12 @@
+import Sidebar from "@/_common/sidebar";
 import React from "react";
 
-export default function PageContent () {
+export default function PageContent() {
     return (
         <div>
-            Dashboard
+            <Sidebar>
+                Dashboard
+            </Sidebar>
         </div>
     )
 }
