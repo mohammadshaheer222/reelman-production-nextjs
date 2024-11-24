@@ -18,6 +18,6 @@ export const metadata: Metadata = {
   },
 };
 
-export default function ContactUs() {
+export default function HomePage() {
   return <Suspense><PageContent /></Suspense>;
 }

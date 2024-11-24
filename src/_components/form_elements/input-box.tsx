@@ -51,7 +51,7 @@ export default function TextInputBox({
             <div>
                 <div className={`${wrapperClass} flex-1 mob-land:flex-none w-full mob-land:w-full}`}>
                     <input
-                        className={`${inputClass} bg-white px-5 py-4 w-full rounded-2xl placeholder:text-gray-400 text-close-icon text-lg placeholder:font-degular-regular placeholder:tracking-contents placeholder:leading-[21.6px] leading-[21.6px] placeholder:text-lg border border-solid border-green-white-shade focus:border-form-desc tracking-contents dark:bg-black-shade ${error !== "undefined" && error !== "" ? 'border-[2px] border-solid border-red-500' : ''}`}
+                        className={`${inputClass} bg-white px-5 py-4 w-full rounded-2xl placeholder:text-gray-400 text-close-icon text-lg placeholder:font-playfair placeholder:tracking-contents placeholder:leading-[21.6px] leading-[21.6px] placeholder:text-lg border border-solid border-green-white-shade focus:border-form-desc tracking-contents dark:bg-black-shade ${error !== "undefined" && error !== "" ? 'border-[2px] border-solid border-red-500' : ''}`}
                         placeholder={placeholder}
                         type={type}
                         value={value}
@@ -67,9 +67,9 @@ export default function TextInputBox({
                 <div className={`${wrapperClass} flex flex-col justify-center w-full h-full items-center`}>
                     <label htmlFor={id} className={`${labelClass} flex flex-col justify-center h-full items-center`}>
                         <div className="py-6">
-                            <span className="bg-black-shade-900 w-full text-white px-4 py-2 cursor-pointer active:scale-95 active:shadow-lg duration-100 rounded-sm">
+                            <p className="bg-black-shade-900 w-full text-white px-5 py-4 cursor-pointer active:scale-95 active:shadow-lg duration-100 rounded-2xl">
                                 Browse Your Photos
-                            </span>
+                            </p>
                             <input className={`${inputClass} sr-only`} type={type} name={name} id={id} accept="image/*" onChange={handleInputChange} />
                         </div>
                     </label>

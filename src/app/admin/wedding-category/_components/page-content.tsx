@@ -20,9 +20,10 @@ type RowData = {
 
 export function PageContent() {
     const [isVisible, setIsVisible] = useState(false);
-    const [formData, setFormData] = useState<{ avatar: File | null; link: string }>({
+    const [formData, setFormData] = useState<{ avatar: File | null; title: string; quote: string }>({
         avatar: null,
-        link: "",
+        title: "",
+        quote: ""
       });
     const { compressedImage, compressImage } = useImageCompression();
 
@@ -38,7 +39,7 @@ export function PageContent() {
             sortable: true,
         },
         {
-            name: 'Link',
+            name: 'Title',
             selector: (row) => row.link,
             sortable: true,
         },
@@ -60,7 +61,7 @@ export function PageContent() {
 
     useEffect(() => {
         if (compressedImage) {
-            setFormData({...formData, avatar: compressedImage});
+            setFormData({...formData, avatar: compressedImage})
         }
     }, [compressedImage, formData]);
 
@@ -81,7 +82,7 @@ export function PageContent() {
                     <div className="flex flex-col gap-4">
                         <div className="flex items-end justify-end">
                             <button className="px-4 py-2 bg-black-shade-900 text-white hover:bg-white hover:text-black-shade-900 rounded-sm"
-                                onClick={() => setIsVisible(true)}> Add Instagram Images
+                                onClick={() => setIsVisible(true)}> Add Wedding Category
                             </button>
                         </div>
                         <DataTable
@@ -97,11 +98,12 @@ export function PageContent() {
                         bodyWrapperClass={`!pl-9 !pr-[30px] mob-land:!px-4 pb-9 mob-land:pb-4 h-[50vh] overflow-y-auto overflow-x-hidden`}
                         contentClass={`rounded-2xl pr-[6px]`}
                         toggleVisibility={(visible: boolean) => setIsVisible(visible)}
-                        modalHeader={"Upload Instagram Images"}
+                        modalHeader={"Add Wedding Category"}
                         modalBody={
                             <>
                                 <form className="flex flex-col items-center w-full h-full gap-4" onSubmit={handleSubmit}>
-                                    <TextInputBox type="text" placeholder="Link" value={formData.link} onChangeValueText={(value: string) => setFormData({...formData, link: value})} />
+                                    <TextInputBox type="text" placeholder="Card Title" value={formData.title} onChangeValueText={(value: string) => setFormData({...formData,title: value})} />
+                                    <TextInputBox type="text" placeholder="Card Quote" value={formData.title} onChangeValueText={(value: string) => setFormData({...formData,quote: value})} />
                                     <TextInputBox type="file" id="avatar" name="avatar" onChangeValue={(file: File | undefined) => handleAvatar(file)} imageState={formData.avatar} />
                                     {formData.avatar && (
                                         <input type="submit" className="px-8 py-2 bg-black-shade-900 text-white hover:bg-white hover:text-black-shade-900 rounded-sm"

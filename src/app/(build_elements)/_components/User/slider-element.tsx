@@ -8,10 +8,22 @@ import "react-lazy-load-image-component/src/effects/blur.css";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 
 type SliderImage = {
-  image: string,
-}
+  image: {
+    src: string; // URL of the image
+  };
+};
 
-const SliderElement = ({ sliderImage, isParallax }: { sliderImage: SliderImage[], isParallax?: boolean | undefined }) => {
+type SliderElementProps = {
+  sliderImage: SliderImage[]; // Array of slider images
+  isParallax?: boolean;
+  wrapperClass?: string;
+};
+
+const SliderElement: React.FC<SliderElementProps> = ({
+  sliderImage,
+  isParallax = false,
+  wrapperClass = "",
+}) => {
   const [imageLoader, setImageLoader] = useState(true);
   const infinite = sliderImage.length > 1;
   // const sliderRef = useRef<HTMLDivElement | null>(null);
@@ -48,8 +60,9 @@ const SliderElement = ({ sliderImage, isParallax }: { sliderImage: SliderImage[]
   };
 
   return (
+    <div className={`${wrapperClass}`}>
     <Slider {...settings}>
-      {sliderImage.map((image: SliderImage, index) => (
+      {sliderImage.map((image, index: number) => (
         isParallax ? (
           <>
             {imageLoader && (
@@ -73,7 +86,7 @@ const SliderElement = ({ sliderImage, isParallax }: { sliderImage: SliderImage[]
                 width: "100%",
                 height: "100vh",
               }}
-              bgImage={image.image ? image.image : ""}
+              bgImage={image.image ? image.image.src : ""}
               onLoad={() => setImageLoader(false)}
               style={{
                 height: "95vh",
@@ -100,7 +113,7 @@ const SliderElement = ({ sliderImage, isParallax }: { sliderImage: SliderImage[]
               }} />
             )}
             <LazyLoadImage
-              src={image.image ? image.image : "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSmCS1UA3pZIonRuREw2OLe4fXDUlTwPazCCGpk8W3zHM5OmH7FYx0C2ohARdFSzVN5TUg&usqp=CAU"}
+              src={image.image ? image.image.src : "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSmCS1UA3pZIonRuREw2OLe4fXDUlTwPazCCGpk8W3zHM5OmH7FYx0C2ohARdFSzVN5TUg&usqp=CAU"}
               alt="Slider background"
               effect="blur"
               onLoad={() => setImageLoader(false)}
@@ -119,6 +132,7 @@ const SliderElement = ({ sliderImage, isParallax }: { sliderImage: SliderImage[]
         )
       ))}
     </Slider>
+    </div>
   )
 };
 

@@ -20,10 +20,8 @@ type RowData = {
 
 export function PageContent() {
     const [isVisible, setIsVisible] = useState(false);
-    const [formData, setFormData] = useState<{ avatar: File | null; link: string }>({
-        avatar: null,
-        link: "",
-      });
+    const [avatar, setAvatar] = useState<File | null>(null);
+    const [link, setLink] = useState("");
     const { compressedImage, compressImage } = useImageCompression();
 
     const columns: TableColumn<RowData>[] = [
@@ -60,9 +58,9 @@ export function PageContent() {
 
     useEffect(() => {
         if (compressedImage) {
-            setFormData({...formData, avatar: compressedImage});
+            setAvatar(compressedImage);
         }
-    }, [compressedImage, formData]);
+    }, [compressedImage]);
 
     const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
@@ -101,9 +99,9 @@ export function PageContent() {
                         modalBody={
                             <>
                                 <form className="flex flex-col items-center w-full h-full gap-4" onSubmit={handleSubmit}>
-                                    <TextInputBox type="text" placeholder="Link" value={formData.link} onChangeValueText={(value: string) => setFormData({...formData, link: value})} />
-                                    <TextInputBox type="file" id="avatar" name="avatar" onChangeValue={(file: File | undefined) => handleAvatar(file)} imageState={formData.avatar} />
-                                    {formData.avatar && (
+                                    <TextInputBox type="text" placeholder="Link" value={link} onChangeValueText={(value: string) => setLink(value)} />
+                                    <TextInputBox type="file" id="avatar" name="avatar" onChangeValue={(file: File | undefined) => handleAvatar(file)} imageState={avatar} />
+                                    {avatar && (
                                         <input type="submit" className="px-8 py-2 bg-black-shade-900 text-white hover:bg-white hover:text-black-shade-900 rounded-sm"
                                         //   value={isLoading ? "Uploading..." : "Upload"}
                                         />

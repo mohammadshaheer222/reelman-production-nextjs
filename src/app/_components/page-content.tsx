@@ -8,100 +8,47 @@ import Image from "next/image";
 
 import demo from "../../../public/assets/images/DSC09082 copy(1).jpg"
 import Link from "next/link";
-import Marquee from "react-fast-marquee";
-import { Background, Parallax } from "react-parallax";
+import WeddingCard from "../(build_elements)/_components/User/wedding-card";
+import WeddingReel from "../(build_elements)/_components/User/wedding-reel";
 
 export default function PageContent() {
-  const heroImage = [{ image: "https://lioneltan.co.nz/wp-content/uploads/2020/04/orakei-bay-wedding-46.jpg" }, { image: "https://lioneltan.co.nz/wp-content/uploads/2020/04/orakei-bay-wedding-46.jpg" },]
+  const heroImage = [{ image: demo }, { image: demo },]
+  const weddingCategory = [
+    { cardImage: demo, cardTitle: "Wedding", cardQuote: "The Big Day" },
+    { cardImage: demo, cardTitle: "Films", cardQuote: "The Big Day" },
+    { cardImage: demo, cardTitle: "Outdoor", cardQuote: "The Big Day" },
+    { cardImage: demo, cardTitle: "Modeling", cardQuote: "The Big Day" },
+  ]
+  const weddingReel = [
+    { cardImage: demo, cardTitle: "The Big Day" },
+    { cardImage: demo, cardTitle: "The Big Day" },
+  ]
+  const instagram = [
+    { cardImage: demo, link: "https://www.instagram.com/p/CWV-dYWPGnW/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==" },
+    { cardImage: demo, link: "https://www.instagram.com/p/CWV-dYWPGnW/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==" },
+  ]
   return (
     <>
-      {/* Hero */}
-      <SliderElement sliderImage={heroImage} isParallax={true} />
-      {/* Middle slider */}
+      <SliderElement sliderImage={heroImage} isParallax={true} wrapperClass="pb-9" />
       {/* <SliderElement sliderImage={heroImage} /> */}
-      {/* Wedding card */}
-      <div className="flex justify-center items-center w-full p-5">
-        <div className="grid  grid-cols-4 ipad:grid-cols-3 mob-lg:grid-cols-2 mob:grid-cols-1 h-full w-full gap-4 ">
-          <div className="relative">
-            <Link href={``}>
-              <div className="overflow-hidden">
-                <Image src={demo} alt="Wedding photo" quality={100} unoptimized={true} priority={true} className="object-cover object-center h-[400px] w-full hover:scale-105 transition-all duration-700" />
-              </div>
-              <p className="capitalize font-bold font-playfair leading-[19px] tracking-[0.9px] text-lg py-2 text-center text-black">Wedding</p>
-              <p className="font-playfair font-light leading-[19px] tracking-[0.9px] text-lg py-2 text-center text-black">The big day</p>
-            </Link>
-          </div>
-          <div className="relative">
-            <Link href={``}>
-              <div className="overflow-hidden">
-                <Image src={demo} alt="Wedding photo" quality={100} unoptimized={true} priority={true} className="object-cover object-center h-[400px] w-full hover:scale-105 transition-all duration-700 mob-lg:h-[380px]" />
-              </div>
-              <p className="capitalize font-bold font-playfair leading-[19px] tracking-[0.9px] text-lg py-2 text-center text-black">Films</p>
-              <p className="font-playfair font-light leading-[19px] tracking-[0.9px] text-lg py-2 text-center text-black">Creativity Show</p>
-            </Link>
-          </div>
-          <div className="relative">
-            <Link href={``}>
-              <div className="overflow-hidden">
-                <Image src={demo} alt="Wedding photo" quality={100} unoptimized={true} priority={true} className="object-cover object-center h-[400px] w-full hover:scale-105 transition-all duration-700 mob-lg:h-[380px]" />
-              </div>
-              <p className="capitalize font-bold font-playfair leading-[19px] tracking-[0.9px] text-lg py-2 text-center text-black">Outdoors</p>
-              <p className="font-playfair font-light leading-[19px] tracking-[0.9px] text-lg py-2 text-center text-black">The big day</p>
-            </Link>
-          </div>
-          <div className="relative">
-            <Link href={``}>
-              <div className="overflow-hidden">
-                <Image src={demo} alt="Wedding photo" quality={100} unoptimized={true} priority={true} className="object-cover object-center h-[400px] w-full hover:scale-105 transition-all duration-700 mob-lg:h-[380px]" />
-              </div>
-              <p className="capitalize font-bold font-playfair leading-[19px] tracking-[0.9px] text-lg py-2 text-center text-black">Modeling</p>
-              <p className="font-playfair font-light leading-[19px] tracking-[0.9px] text-lg py-2 text-center text-black">The big day</p>
-            </Link>
-          </div>
-        </div>
+      <WeddingCard weddingCategory={weddingCategory} wrapperClass="py-5" />
+      <WeddingReel weddingReel={weddingReel} wrapperClass="p-5" />
+      <div className="flex justify-center items-center py-5">
+        <button className="bg-transparent border border-gray-700 font-playfair leading-[19px] tracking-[0.9px] px-8 py-4 hover:bg-black hover:text-white rounded-sm">Book Your Wedding</button>
       </div>
-      {/* Wedding quote with Reels */}
-      <div>
-        <Link href={``}>
-          <div className="relative">
-            <Parallax className="min-h-[90vh] max-h-[90vh] object-cover object-center" strength={200}>
-              <Background className="custom-bg w-screen">
-                <Image src={demo} alt="Wedding photo" quality={100} unoptimized={true} priority={true} className="h-[100vh] w-full object-cover object-center" />
-              </Background>
-            </Parallax>
-            <div className="absolute top-0 w-full h-full flex justify-center items-end mix-blend-difference">
-              <Marquee speed={30} className="overflow-hidden">
-                <h1 className="text-8xl font-bold text-white font-playfair tracking-[0.9px]">The Big Day</h1>
-              </Marquee>
-            </div>
-          </div>
-        </Link>
-        <Link href={``}>
-          <div className="relative">
-            <Parallax className="min-h-[90vh] max-h-[90vh] object-cover object-center" strength={200}>
-              <Background className="custom-bg w-screen">
-                <Image src={demo} alt="Wedding photo" quality={100} unoptimized={true} priority={true} className="h-[100vh] w-full object-cover object-center" />
-              </Background>
-            </Parallax>
-            <div className="absolute top-0 w-full h-full flex justify-center items-end mix-blend-difference">
-              <Marquee speed={30} pauseOnHover={true} autoFill={true} className="overflow-hidden">
-                <h1 className="text-8xl font-bold text-white font-playfair tracking-[0.9px]">The Big Day</h1>
-              </Marquee>
-            </div>
-          </div>
-        </Link>
-      </div>
-      {/* Instagram */}
-      <div className="flex justify-center items-center p-5">
-        <div className="grid grid-cols-4 h-full w-full pt-2 gap-4 ipad:grid-cols-3 mob-lg:grid-cols-2">
-          <div className="cursor-pointer group overlay top-0 left-0 w-full h-full transition-opacity duration-500 hover:opacity-50">
-            <div className="w-full relative">
-              <Image className="w-full" src={demo} alt="Instagram-image" width={328} height={455} />
-              <div className="scale-0 group-hover:scale-100 duration-500 absolute top-0 flex justify-center items-center h-full w-full">
-                <Link href={"https://www.instagram.com/p/CWV-dYWPGnW/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA=="}><FaInstagram size={20} className=" scale-125 hover:rotate-90 transition-all duration-500" /> </Link>
+      <div className="flex flex-col justify-start items-start p-5">
+      <h1 className="text-4xl font-playfair font-bold leading-[19px] tracking-[0.9px] pb-4 uppercase text-start flex-nowrap mob:text-2xl">Instagram</h1>
+        <div className="grid grid-cols-4 ipad:grid-cols-3 mob-lg:grid-cols-2 h-full w-full gap-4">
+          {instagram && instagram.map((data, index: number) => (
+            <div  key={index} className="cursor-pointer group overlay top-0 left-0 w-full h-full transition-opacity duration-500 hover:opacity-50">
+              <div className="w-full relative">
+                <Image className="w-full h-[400px] mob:h-[200px] object-cover object-center" quality={100} unoptimized={true} priority={true} src={data.cardImage} alt="Instagram-image" />
+                <div className="scale-0 group-hover:scale-100 duration-500 absolute top-0 flex justify-center items-center h-full w-full">
+                  <Link href={data.link}><FaInstagram size={20} className=" scale-125 hover:rotate-90 transition-all duration-500" /> </Link>
+                </div>
               </div>
             </div>
-          </div>
+          ))}
         </div>
       </div>
     </>

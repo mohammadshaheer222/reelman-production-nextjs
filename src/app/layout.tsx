@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 
 import { Playfair } from "next/font/google"
 import "./globals.css";
+import Footer from "@/_common/footer";
 // import Footer from "@/_common/footer";
 
 const playfair = Playfair({
@@ -30,6 +31,7 @@ export default function RootLayout({
       <body className={`${playfair.variable} antialiased bg-theme-color dark:bg-black-shade-900`}>
         <div className=" main-body-wrapper w-full h-screen">
           {children}
+          <Footer />
         </div>
       </body>
     </html>
