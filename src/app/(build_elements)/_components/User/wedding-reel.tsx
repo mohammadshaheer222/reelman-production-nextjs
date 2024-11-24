@@ -12,7 +12,7 @@ type WeddingReelProps = {
 const WeddingReel = ({ weddingReel, wrapperClass = `` }: { weddingReel: WeddingReelProps[], wrapperClass?: string | undefined }) => {
     return (
         <div className={`${wrapperClass}`}>
-            <h1 className="text-4xl font-playfair font-bold leading-[19px] tracking-[0.9px] pb-4 uppercase text-start flex-nowrap mob:text-2xl">Wedding Stories</h1>
+            <h1 className="text-4xl font-playfair font-bold leading-[19px] tracking-[0.9px] pb-4 uppercase text-start flex-nowrap text-black mob:text-2xl">Wedding Stories</h1>
             {weddingReel && weddingReel.map((data, index: number) => (
                 <Link href={``} key={index}>
                     <div className="relative">

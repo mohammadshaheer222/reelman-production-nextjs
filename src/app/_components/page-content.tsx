@@ -34,13 +34,13 @@ export default function PageContent() {
       <WeddingCard weddingCategory={weddingCategory} wrapperClass="py-5" />
       <WeddingReel weddingReel={weddingReel} wrapperClass="p-5" />
       <div className="flex justify-center items-center py-5">
-        <button className="bg-transparent border border-gray-700 font-playfair leading-[19px] tracking-[0.9px] px-8 py-4 hover:bg-black hover:text-white rounded-sm">Book Your Wedding</button>
+        <button className="bg-transparent text-black border border-gray-700 font-playfair leading-[19px] tracking-[0.9px] px-8 py-4 hover:bg-black hover:text-white rounded-sm">Book Your Wedding</button>
       </div>
       <div className="flex flex-col justify-start items-start p-5">
-      <h1 className="text-4xl font-playfair font-bold leading-[19px] tracking-[0.9px] pb-4 uppercase text-start flex-nowrap mob:text-2xl">Instagram</h1>
+      <h1 className="text-4xl font-playfair font-bold leading-[19px] tracking-[0.9px] pb-4 uppercase text-start flex-nowrap text-black mob:text-2xl">Instagram</h1>
         <div className="grid grid-cols-4 ipad:grid-cols-3 mob-lg:grid-cols-2 h-full w-full gap-4">
           {instagram && instagram.map((data, index: number) => (
-            <div  key={index} className="cursor-pointer group overlay top-0 left-0 w-full h-full transition-opacity duration-500 hover:opacity-50">
+            <div key={index} className="cursor-pointer group overlay top-0 left-0 w-full h-full transition-opacity duration-500 hover:opacity-50">
               <div className="w-full relative">
                 <Image className="w-full h-[400px] mob:h-[200px] object-cover object-center" quality={100} unoptimized={true} priority={true} src={data.cardImage} alt="Instagram-image" />
                 <div className="scale-0 group-hover:scale-100 duration-500 absolute top-0 flex justify-center items-center h-full w-full">
